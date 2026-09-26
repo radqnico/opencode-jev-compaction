@@ -21,11 +21,9 @@ repository, installs the plugin, and verifies the setup:
 
 ```text
 Install the OpenCode plugin from https://github.com/radqnico/opencode-jev-compaction:
-1. Read the repository README and docs/adaptation.md to understand what the plugin does.
-2. Install it with `opencode plugin add github:radqnico/opencode-jev-compaction`.
-3. Ask me for a TypeSafe API key if TYPESAFE_API_KEY is not already set in my environment, and configure it as the plugin's `apiKey` option or as the TYPESAFE_API_KEY environment variable.
-4. Restart the OpenCode service and run `opencode plugin list` to confirm the plugin is loaded.
-5. Report back the plugin list entry and any load errors from the service log.
+1. Install it with `opencode plugin add github:radqnico/opencode-jev-compaction`.
+2. export TYPESAFE_API_KEY="..."
+3. Restart the OpenCode service and run `opencode plugin list` to confirm the plugin is loaded.
 ```
 
 ## Why
