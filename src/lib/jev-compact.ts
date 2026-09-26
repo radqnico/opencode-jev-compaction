@@ -4,7 +4,7 @@
  *
  * `compact()` itself stays `async` (Promise-based) so the port is verbatim
  * and unit-testable without an Effect runtime. The Effect wrapper lives in
- * `src/jev/effect-client.ts` and `src/compaction/hook.ts`.
+ * `src/jev/client.ts` and `src/compaction/hook.ts`.
  *
  * See `LICENSE-THIRD-PARTY.md`.
  */

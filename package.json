@@ -17,7 +17,6 @@
   },
   "scripts": {
     "typecheck": "tsc --noEmit -p tsconfig.json",
-    "test": "node /tmp/run-tests.mjs",
-    "test:file": "node --test tests/jev-compaction.test.ts"
+    "test": "node scripts/run-tests.mjs"
   }
 }

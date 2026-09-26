@@ -158,7 +158,7 @@ All options go under the plugin entry in `opencode.jsonc`:
 
 ```sh
 npm run typecheck
-node /tmp/run-tests.mjs
+npm test
 ```
 
 Tests use `node:test` and `node:assert/strict`. The Jev network boundary
@@ -166,20 +166,3 @@ is a fake asker; no test contacts TypeSafe. Live verification against the
 real API is done ad hoc with a script that reads the key from
 `TYPESAFE_API_KEY` and checks the model list, a minimal judgment, a full
 `compact()` run, and the hook path end to end.
-
-A Docker clean-room harness (fresh container, isolated home, pinned
-binary) covers fresh install, unit tests, plugin load, a stubbed-fetch
-hook matrix (missing key, HTTP errors, malformed responses, unfittable
-history, threshold fallback, custom endpoint), and serve/session/compact
-reachability:
-
-```sh
-docker compose -f docker/compose.yml run --rm v2 all
-docker compose -f docker/compose.yml run --rm v2 run
-TYPESAFE_API_KEY=... docker compose -f docker/compose.yml run --rm v2 run
-```
-
-See `docker/README.md` for stages and limits. `EFFECT_PLUGIN_GUIDE.md`
-documents the OpenCode plugin API surface used here, and
-`PLUGIN_MAINTENANCE_GUIDE.md` records the conventions this repository
-follows.
