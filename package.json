@@ -1,0 +1,23 @@
+{
+  "name": "opencode-jev-compaction",
+  "version": "0.1.0",
+  "description": "Verbatim Jev-guided compaction for OpenCode sessions. Prunes stale tool calls/results with TypeSafe Jev instead of lossy LLM summaries.",
+  "type": "module",
+  "license": "MIT",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@opencode/plugin": "^2.0.18",
+    "effect": "^4.0.0-rc.112"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^7.0.2"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "node /tmp/run-tests.mjs",
+    "test:file": "node --test tests/jev-compaction.test.ts"
+  }
+}
