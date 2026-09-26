@@ -63,25 +63,56 @@ replacing history. Later compactions treat it as prior summary text.
 
 ## Installation
 
-Requires Node 22+ and an OpenCode v2 installation.
+One command installs the plugin from GitHub into the global OpenCode
+configuration:
 
 ```sh
-npm install
+opencode plugin add github:radqnico/opencode-jev-compaction
+```
+
+Set the TypeSafe key once, in the shell profile or the environment
+OpenCode runs in:
+
+```sh
 export TYPESAFE_API_KEY="..."
 ```
 
-Load the plugin from this checkout. OpenCode loads TypeScript sources
-directly; `src/` is the artifact, no build step is needed:
+Restart the service and confirm the plugin loaded:
+
+```sh
+opencode service restart
+opencode plugin list
+```
+
+## Quick install with an agent
+
+Paste the following into any OpenCode session. The agent reads this
+repository, installs the plugin, and verifies the setup:
+
+```text
+Install the OpenCode plugin from https://github.com/radqnico/opencode-jev-compaction:
+1. Read the repository README and docs/adaptation.md to understand what the plugin does.
+2. Install it with `opencode plugin add github:radqnico/opencode-jev-compaction`.
+3. Ask me for a TypeSafe API key if TYPESAFE_API_KEY is not already set in my environment, and configure it as the plugin's `apiKey` option or as the TYPESAFE_API_KEY environment variable.
+4. Restart the OpenCode service and run `opencode plugin list` to confirm the plugin is loaded.
+5. Report back the plugin list entry and any load errors from the service log.
+```
+
+## Manual setup
+
+For a local checkout or for development, point a plugin entry at the
+repository directory instead. OpenCode loads TypeScript sources
+directly; no build step is needed:
 
 ```jsonc
 // opencode.jsonc
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugins": [{ "package": "/path/to/opencode-jev-compaction" }],
+  "plugins": [{ "package": "/path/to/opencode-jev-compaction" }]
 }
 ```
 
-For local development, the auto-loaded shim at
+For development inside this repository, the auto-loaded shim at
 `.opencode/plugins/jev-compaction/index.ts` re-exports `src/index.ts`,
 so opening this directory in OpenCode loads the plugin with no config.
 
